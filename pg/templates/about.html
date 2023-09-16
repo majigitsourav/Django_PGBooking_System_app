@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block div %}
+   <a href="home" class="nav-item nav-link">Home</a>
+    <a href="about" class="nav-item nav-link active">About</a>
+    <a href="service" class="nav-item nav-link">Services</a>
+    <a href="pgowner_login" class="nav-item nav-link">Pg Owner</a>
+    <a href="contact" class="nav-item nav-link">Contact</a>
+
+{% endblock div %}
+{% block hero %}
+<div class="container-fluid bg-primary py-5  hero-header">
+            
+</div>
+        
+{% endblock hero %}
+
+{% block body %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about1.png' %}" alt="" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                <h1 class="mb-4">Welcome to <span class="text-primary">PASS</span></h1>
+                <p class="mb-4">Welcome to PASS, your trusted partner for seamless and convenient booking
+                    experiences. Our mission is to simplify the booking process and empower businesses and
+                    individuals to efficiently manage their reservations.</p>
+                <p class="mb-4">At PASS, we are a passionate team of developers, designers, and problem solvers.
+                    With a shared vision of making bookings hassle-free, we embarked on a journey to create a
+                    platform that brings ease and efficiency to the world of reservations.</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Best deals </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked PG</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Safe Accommodations</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest facilities</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150+ Pg
+                        </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       
+    <div style="margin-top: 30px;"></div>
+{% comment %} add who are we {% endcomment %}
+<div class="row g-5">
+    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+        <h1 class="mb-4">Who We Are <span class="text-primary">?</span></h1>
+        <p class="mb-4">At PASS, we are a passionate team of developers, designers, and problem solvers.
+                     With a shared vision of making bookings hassle-free, we embarked on a journey 
+                     to create a platform that brings ease and efficiency to the world of reservations.</p>
+        <p class="mb-4">Our journey began with a simple realization: booking experiences can often be 
+            complicated and time-consuming. That's when a team of passionate individuals, 
+            each with a unique set of skills and expertise, came together to create a solution
+             that would change the game. With countless hours of dedication and innovation, PASS was born.</p>
+        <div class="row gy-2 gx-4 mb-4">
+            
+            <!-- ... Other feature columns ... -->
+        </div>
+    </div>
+    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="position-relative h-100">
+            <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about1.jpg' %}" alt=""
+                style="object-fit: cover;">
+        </div>
+    </div>
+  </div>
+
+  {% comment %} add What We Offer {% endcomment %}
+  <div style="margin-top: 30px;"></div>
+  <div class="row g-5">
+    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+        <div class="position-relative h-100">
+            <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about2.jpg' %}" alt="" style="object-fit: cover;">
+        </div>
+    </div>
+    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+       
+        <h1 class="mb-4">What We Offer<span class="text-primary">?</span></h1>
+        <p class="mb-4">Our platform provides a comprehensive solution for a wide range of booking needs. Whether you're a traveler in search of the perfect accommodation, an event organizer looking to manage ticket sales, or a professional needing to schedule appointments, PASS is here to meet your needs.</p>
+        <p class="mb-4">Discover a wide range of PG accommodations that cater to your preferences and requirements. Our extensive listings include various types of PGs, from budget-friendly options to premium accommodations, ensuring there's something for everyone.</p>
+            
+        
+    </div>
+    <div style="margin-top: 30px;"></div>
+
+    <div class="row g-5">
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-4">Why Choose Us <span class="text-primary">?</span></h1>
+            <p class="mb-4"><h5>Simplicity*:</h5> We believe in keeping things simple. Our user-friendly interface ensures that you can complete your bookings quickly and without any confusion.</p>
+            <p class="mb-4"><h5>Reliability*:</h5> Count on us for a dependable booking experience. Our robust system is designed to handle high volumes of bookings while maintaining performance and security.
+            </p>
+            <p class="mb-4"><h5>Flexibility*:</h5> Every booking requirement is unique. That's why we offer customizable options that cater to various industries and niches. Your booking, your way.
+            </p>
+            <p class="mb-4"><h5>Security*:</h5> Your privacy and security are our top priorities. Rest assured that your personal and payment information are protected through state-of-the-art security measures.</p>
+            </p>
+            <p class="mb-4"><h5>Dedicated Support*:</h5>  Have a question or need assistance? Our dedicated support team is ready to help you at every step of the way.</p>
+            <div class="row gy-2 gx-4 mb-4">
+                
+                <!-- ... Other feature columns ... -->
+            </div>
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="position-relative h-100">
+                <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about3.png' %}" alt=""
+                    style="object-fit: cover;">
+            </div>
+        </div>
+      </div>
+</div>
+        
+    </div>
+</div>
+<div>
+  
+
+
+<div data-wow-delay="0.3s">
+       
+    <h1 class="mb-4">Join Us on Our Journey</h1>
+    <p class="mb-4"><h6>We invite you to be a part of our journey towards simplifying bookings. Whether you're a business looking to streamline your reservation process or an individual seeking seamless booking experiences,PASS is here to transform the way you book.
+
+        Thank you for choosing PASS</h6></p>
+    
+    
+</div>
+
+</div>
+
+{% endblock body %}
+
+
+

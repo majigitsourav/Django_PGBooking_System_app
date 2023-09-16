@@ -1,0 +1,367 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block div %}
+   <a href="/home" class="nav-item nav-link">Home</a>
+    <a href="/about" class="nav-item nav-link ">About</a>
+    <a href="/service" class="nav-item nav-link">Services</a>
+    <a href="/pgowner_login" class="nav-item nav-link">Pg Owner</a>
+    <a href="/contact" class="nav-item nav-link">Contact</a>
+
+{% endblock div %}
+
+{% block style %}
+ .highlight-text {
+    color: red; /* Text color */
+    font-size: 21px; /* Font size */
+    font-weight: bold; /* Font weight */
+ }
+ .property-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.property-info-item {
+    flex: 1;
+}
+.amenities-rules-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.amenities-rules-item {
+    flex: 1;
+    border: 1px solid #ccc; /* Border color for the boxes */
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+.amenities-rules-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles for Property Details */
+.property-details-container {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #ccc; /* Border color for the box */
+    margin-top: 20px;
+}
+
+.property-details-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2b1075;
+}
+
+.property-details-description {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Background color for boxes */
+.amenities-rules-item {
+    background-color: #e0e0e0; /* Choose your desired background color */
+}
+
+.property-details-container {
+    background-color: #e0e0e0; /* Choose your desired background color */
+}
+.occupancy-box {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.occupancy-title {
+    font-size: 30px;
+    font-weight: 500;
+    color: #2b1075;
+}
+
+.occupancy-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+.btn-number:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.total-pay-box {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.total-pay-box h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+#totalPay {
+    font-size: 24px;
+    color: #007bff;
+    font-weight: 500;
+}
+.total-pay-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-pay-now {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-pay-now:hover {
+    background-color: #0056b3;
+}
+
+.search-bar button[type="submit"] {
+    padding: 10px 20px;
+    background-color: blue; /* Change the button background color (red in this example) */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  
+  .search-bar button[type="submit"]:hover {
+    background-color: blue; 
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: black; 
+  }
+
+{% endblock style %}
+{% block script %}
+
+function redirectToBooking() {
+    var totalPay = document.getElementById('totalPay').textContent;
+    var numMonths = document.getElementById('numMonths').value;
+    var pgId = "{{ pg.id }}"; // Replace with the actual way to get the pg.id value
+  
+    // Construct the URL with query parameters
+    var url = "book_details" + "?totalPay=" + encodeURIComponent(totalPay) + "&numMonths=" + encodeURIComponent(numMonths) + "&pgId=" + encodeURIComponent(pgId);
+  
+    // Redirect to the booking page with the parameters
+    window.location.href = url;
+}
+
+{% endblock script %}
+{% block hero %}
+<div class="container-fluid bg-primary py-5  hero-header">
+            
+</div>
+        
+{% endblock hero %}
+{% block body %}
+
+
+<div class="container" py-4>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="max-width: 800px; margin: 0 auto;width: 100vh; object-fit:cover ; ">
+        <div class="carousel-inner " style="object-fit: cover;height: fit-content;">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="{{ pg.property_image1.url }}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="{{ pg.property_image2.url }}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ pg.property_image3.url }}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="row">
+        <div class="col-md-8 py-4">
+           
+            <div class="property-details mt-4">
+                <div>
+                    <h1 style="font-size: 45px; color: #2b1075; font-weight: 500; display: inline;">  {{pg.pgname}} </h1>
+                    <h2 style="font-size: 45px; color: green; font-weight: 500; display: inline; float: right;"> {{pg.rent}} <span style="font-size: 20px;color: darkslategrey;">/month</span></h2>
+                    <div style="clear: both;"></div>
+                </div>
+                
+                <p style="color: blueviolet;font-size: 15px;font-weight: bold;"><strong class="highlight-text" style="color: green;">Location:</strong>  {{pg.location}}, {{pg.city}}, {{pg.state}} </p>
+                <p style="color: darkblue;font-size: 15px;font-weight: bold;"><strong class="highlight-text">Landmark:</strong> Near {{pg.pro_address}} </p>
+
+                <div class=" ">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <h1 style="font-size: 20px;color: #243624; font-weight: 500;padding: 3px;"><u style="font-size: 22px                            ;color: darkslateblue; font-weight: 500;padding: 3px;">Owner Name</u><br> {{pg.pname}} </h1>
+                        </div>
+                        <div class="col-md-3">
+                            <h1 style="font-size: 20px;color: #243624; font-weight: 500;padding: 3px;"><u style="font-size: 22px;color: darkslateblue; font-weight: 500;padding: 3px;">Mobile No</u> {{pg.phone_no}} </h1>
+                        </div>
+                        <div class="col-md-3">
+                            <h1 style="font-size: 20px;color: #243624; font-weight: 500;padding: 3px;"><u style="font-size: 22px;color: darkslateblue; font-weight: 500;padding: 3px;">Email</u><br> {{pg.email}} </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-details-container">
+                    <h2 class="property-details-title">Amenities</h2>
+                    <p style="color: darkslategray;font-size: 15px;font-weight: bold;"> {{pg.amenities}}.</p>
+                </div>
+            
+                <div class="property-details-container">
+                    <h2 class="property-details-title">PG Rules</h2>
+                    <div class="bs-glyphicons">
+                        <h2 style="font-size: medium; font-family: serif;">
+                            <p class="fa fa-hand-o-right"></p> Deposit is One Month Rent and should be Paid in Advance
+                        </h2>
+                
+                        <h2 style="font-size: medium; font-family: serif;">
+                            <p class="fa fa-hand-o-right"></p> No Friends
+                        </h2>
+                
+                        <h2 style="font-size: medium; font-family: serif;">
+                            <p class="fa fa-hand-o-right"></p> No Parties
+                        </h2>
+                
+                        <h2 style="font-size: medium; font-family: serif;">
+                            <p class="fa fa-hand-o-right"></p> No alcohol
+                        </h2>
+                
+                        <h2 style="font-size: medium; font-family: serif;">
+                            <p class="fa fa-hand-o-right"></p> No Smoking
+                        </h2>
+                
+                        <h2 style="font-size: medium; font-family: serif;">
+                            <p class="fa fa-hand-o-right"></p> One Time Maintenance
+                        </h2>
+                    </div>
+                </div>
+            
+                <div class="property-details-container">
+                    <h2 class="property-details-title">Property Details</h2>
+                    <p class="property-details-description" style="color: darkslategray;font-size: 15px;font-weight: bold;"> {{pg.description}} </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 py-3">
+           
+            <div class="occupancy-box">
+                <h1 class="occupancy-title">Occupancy</h1>
+                <div class="form-group">
+                    <label style="font-weight: 500;color:blueviolet;font-size: 20px;">Rent:</label>
+                    <div class="input-group">
+                        <span class="input-group-text" style="color: darkgreen;"><i class="fas fa-money-bill"></i></span>
+                        <input type="text" style="color: green;font-weight: bold;" name="rentPerMonth" id="rentPerMonth" class="form-control" value="{{pg.rent}}" readonly>
+                        <span class="input-group-text" style="color: cornflowerblue;font-weight: bold;">month</span>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-number"  data-type="minus" data-field="numMonths">
+                                <span class="fas fa-minus"></span>
+                            </button>
+                        </span>
+                        <input type="text" name="numMonths" id="numMonths" class="form-control input-number" value="1" min="1">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="numMonths">
+                                <span class="fas fa-plus"></span>
+                            </button>
+                        </span>
+                        
+                    </div>
+                </div>
+            
+                <div class="total-pay-container" style="text-align: center;">
+                    <div class="total-pay-box"  style="text-align: center;">
+                        <h4>Total Pay:</h4>
+                        <p id="totalPay">3500</p>
+                    </div>
+                    <button class="btn btn-primary btn-pay-now" onclick="redirectToBooking()">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Your HTML code -->
+
+<!-- Add the JavaScript code below your HTML content -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to calculate and update the total pay
+        var rentInput = document.getElementById('rentPerMonth');
+        var numMonthsInput = document.getElementById('numMonths');
+        var totalPayElement = document.getElementById('totalPay');
+
+        // Function to update the total pay
+        function updateTotalPay() {
+            var rentPerMonth = parseFloat(rentInput.value.replace('/month', '')) || 0;
+            var numMonths = parseInt(numMonthsInput.value) || 1; // Default to 1 month if the input is empty or invalid.
+            var totalPay = rentPerMonth * numMonths;
+            totalPayElement.textContent = totalPay;
+        }
+
+        // Event listener for the plus button
+        document.querySelector('.btn-number[data-type="plus"]').addEventListener('click', function () {
+            numMonthsInput.value = parseInt(numMonthsInput.value) + 1;
+            updateTotalPay();
+        });
+
+        // Event listener for the minus button
+        document.querySelector('.btn-number[data-type="minus"]').addEventListener('click', function () {
+            var numMonths = parseInt(numMonthsInput.value);
+            if (numMonths > 1) {
+                numMonthsInput.value = numMonths - 1;
+            }
+            updateTotalPay();
+        });
+
+        // Event listener for the input field
+        numMonthsInput.addEventListener('input', function () {
+            var numMonths = parseInt(numMonthsInput.value);
+            if (numMonths < 1 || isNaN(numMonths)) {
+                numMonthsInput.value = 1; // Ensure a minimum of 1 month
+            }
+            updateTotalPay();
+        });
+
+        // Initial calculation
+        updateTotalPay();
+    });
+</script>
+
+{% endblock body %}
+

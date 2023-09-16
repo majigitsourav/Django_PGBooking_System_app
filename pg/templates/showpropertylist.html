@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pg Booking System</title>
+
+    <!-- Add Bootstrap CSS link here -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Add jQuery and Bootstrap JS links here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript file (if you have one) -->
+    <script src="path/to/your/custom.js"></script>
+
+    <style>
+      /* Custom CSS styles */
+      /* Custom CSS styles */
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: Arial, sans-serif;
+        margin: 0; /* Remove default body margin */
+        padding: 0; /* Remove default body padding */
+      }
+      
+      /* Style for the page container */
+      .page-container {
+        border: 1px solid #007bff; /* Add a border with a blue color */
+        border-radius: 20px; /* Rounded corners for the frame effect */
+        padding: 20px;
+        margin: 20px auto; /* Center the page horizontally */
+        background-color: #f8f9fa; /* Background color for the page */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 95%; /* Set a maximum width for the page container (adjust as needed) */
+        min-height: 100vh; /* Minimum height to cover the entire viewport */
+        overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    }
+
+      
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+      }
+      
+      h3.center {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+        color: #007bff;
+      }
+      
+      /* Style for the table container */
+      .table-container {
+        border: 2px solid #007bff; /* Set border color and width for the table container */
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #fff; /* Background color for the table container */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      table {
+        width: 100%;
+      }
+      
+      table,
+      th,
+      td {
+        border: 1px solid #333;
+        border-collapse: collapse;
+      }
+      
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      
+      /* Rest of your styles remain the same */
+      /* ... */
+      
+      /* Rest of your styles remain the same */
+      /* ... */
+    </style>
+  </head>
+  <body>
+    <!-- Wrap your page content in a container with the box effect -->
+    
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="mx-2 my-3">Hey Successfully Added your PG</h1>
+      <div>
+        <a href="popertylist" class="btn btn-primary mx-2 pr-2">Add More PG</a>
+        <a href="home" class="btn btn-secondary  mx-2 pr-2">Go To Home</a>
+      </div>
+    </div>
+    <div class="page-container">
+      
+      <h3 class="center">Your Added Pg</h3>
+      <div class="container">
+        <table>
+          <tr>
+            <th>Pg Name</th>
+            <th>Gender</th>
+            <th>Person Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Pg Registration No</th>
+            <th>Address</th>
+            <th>Rent</th>
+            <th>Description</th>
+            <th>Image 1</th>
+            <th>Image 2</th>
+            <th>Image 3</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Location</th>
+            <th>No of Bed</th>
+            <th>Amenities</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <!-- You can use a loop to populate table rows with data -->
+          {% for i in a %}
+            <tr>
+              <td>{{ i.pgname }}</td>
+              <td>{{ i.gender }}</td>
+              <td>{{ i.pname }}</td>
+              <td>{{ i.email }}</td>
+              <td>{{ i.phone_no }}</td>
+              <td>{{ i.pg_rg_no }}</td>
+              <td>{{ i.pro_address }}</td>
+              <td>{{ i.rent }}</td>
+              <td>{{ i.description }}</td>
+              <td>
+                <img src="{{ i.property_image1.url }}" alt="Image 1" width="100" />
+              </td>
+              <td>
+                <img src="{{ i.property_image2.url }}" alt="Image 2" width="100" />
+               </td>
+              <td>
+                <img src="{{ i.property_image3.url }}" alt="Image 3" width="100" />
+              </td>
+              <td>{{ i.state }}</td>
+              <td>{{ i.city }}</td>
+              <td>{{ i.location }}</td>
+              <td>{{ i.no_of_beds }}</td>
+              <td>{{ i.amenities }}</td>
+              <td>
+                <a href="del/{{ i.id }}">Delete</a>
+              </td>
+              <td>
+                <a href="edit/{{ i.id }}">Edit</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

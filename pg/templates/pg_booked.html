@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pg Booking System</title>
+
+    <!-- Add Bootstrap CSS link here -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Add jQuery and Bootstrap JS links here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript file (if you have one) -->
+    <script src="path/to/your/custom.js"></script>
+
+    <style>
+      /* Custom CSS styles */
+      /* Custom CSS styles */
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        font-family: Arial, sans-serif;
+        margin: 0; /* Remove default body margin */
+        padding: 0; /* Remove default body padding */
+      }
+      
+      /* Style for the page container */
+      .page-container {
+        border: 1px solid #007bff; /* Add a border with a blue color */
+        border-radius: 20px; /* Rounded corners for the frame effect */
+        padding: 20px;
+        margin: 20px auto; /* Center the page horizontally */
+        background-color: #f8f9fa; /* Background color for the page */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 95%; /* Set a maximum width for the page container (adjust as needed) */
+        min-height: 100vh; /* Minimum height to cover the entire viewport */
+        overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    }
+
+      
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #007bff;
+      }
+      
+      h3.center {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+        color: #007bff;
+      }
+      
+      /* Style for the table container */
+      .table-container {
+        border: 2px solid #007bff; /* Set border color and width for the table container */
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #fff; /* Background color for the table container */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      table {
+        width: 100%;
+      }
+      
+      table,
+      th,
+      td {
+        border: 1px solid #333;
+        border-collapse: collapse;
+      }
+      
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      
+      /* Rest of your styles remain the same */
+      /* ... */
+      
+      /* Rest of your styles remain the same */
+      /* ... */
+    </style>
+  </head>
+  <body>
+    <!-- Wrap your page content in a container with the box effect -->
+    
+    <div class="d-flex justify-content-between align-items-center" style="text-align: center;">
+      <h1 class="mx-2 my-3" style="color: #333;font-weight: bold;">Your Booked Pgs Here</h1>
+      <div>
+        {% comment %} <a href="popertylist" class="btn btn-primary mx-2 pr-2">Add More PG</a> {% endcomment %}
+        <a href="home" class="btn btn-secondary  mx-2 pr-2">Home</a>
+      </div>
+    </div>
+    <div class="page-container">
+      
+      <h3 class="center" style="color: darkblue;">Your Booked Pg</h3>
+      <div class="container">
+        <table>
+          <tr>
+            <th>Person Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Pg Name</th>
+            <th>Pg ID</th>
+            <th>From Date</th>
+            <th>To Date</th>
+            <th>Amount</th>
+            {% comment %} <th>Address</th>
+            <th>Rent</th>
+            <th>Description</th> {% endcomment %}
+            {% comment %} <th>Image 1</th>
+            <th>Image 2</th>
+            <th>Image 3</th> {% endcomment %}
+            {% comment %} <th>State</th> {% endcomment %}
+            {% comment %} <th>City</th> {% endcomment %}
+            {% comment %} <th>Location</th> {% endcomment %}
+            {% comment %} <th>No of Bed</th>
+            <th>Amenities</th> {% endcomment %}
+            <th></th>
+            <th></th>
+          </tr>
+          <!-- You can use a loop to populate table rows with data -->
+          {% for i in a %}
+            <tr>
+              <td>{{ i.name }}</td>
+              <td>{{ i.email }}</td>
+              <td>{{ i.phone }}</td>
+              <td>{{ i.pgname }}</td>
+              <td>{{ i.pgid }}</td>
+              <td>{{ i.from_date }}</td>
+              <td>{{ i.to_date }}</td>
+              <td>{{ i.total_amount }}</td>
+
+
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

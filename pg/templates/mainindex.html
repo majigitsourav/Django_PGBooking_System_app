@@ -1,0 +1,652 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+  .hero-header {
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url("{% static 'img/bg-hero.jpg' %}");
+    
+ }
+{% endblock style %}
+{% block div %}
+<a href="home" class="nav-item nav-link ">Home</a>
+<a href="about" class="nav-item nav-link">About</a>
+<a href="service" class="nav-item nav-link">Services</a>
+<a href="pgowner_login" class="nav-item nav-link">Pg Owner
+<a href="contact" class="nav-item nav-link">Contact</a>
+{% endblock div %}
+{% block body %}
+
+
+        <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+            <div class="container py-5">
+                <div class="row justify-content-center py-5">
+                    <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Go to safe destination with us</h1>
+                        <p class="fs-4 text-white mb-4 animated slideInDown">We provide best accomodation with great
+                            safety</p>
+                        <div class="position-relative w-75 mx-auto animated slideInDown">
+                            <form action="pg_search" method="GET">
+                              <input type="text" class="search border-0 rounded-pill w-100 py-3 ps-4 pe-5"  name="search" id="search"
+                                placeholder="Enter the city,place..">
+                               <button type="submit"
+                                class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
+                                style="margin-top: 7px;">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Hero End -->
+
+
+    <!-- city add -->
+
+    <p class="centered-text">Now we are in</p>
+
+    <div class="container text-center">
+        <div class="city-card card">
+            <div class="card-circle">
+                <img src="{% static 'img/kolkata.jpg' %}" alt="Paris" class="city-image">
+            </div>
+            <div class="card-body">
+                <h1 class="city-name">Kolkata</h1>
+            </div>
+        </div>
+        <div class="city-card card">
+            <div class="card-circle">
+                <img src="{% static 'img/delhi.jpg' %}" alt="New York" class="city-image">
+            </div>
+            <div class="card-body">
+                <h1 class="city-name">Delhi</h1>
+            </div>
+        </div>
+
+        <div class="city-card card">
+            <div class="card-circle">
+                <img src="{% static 'img/hydrabad.jpg' %}" alt="London" class="city-image">
+            </div>
+            <div class="card-body">
+                <h1 class="city-name">Hydrabad</h1>
+            </div>
+        </div>
+        <div class="city-card card">
+            <div class="card-circle">
+                <img src="{% static 'img/mumbai.jpg' %}" alt="Sydney" class="city-image">
+            </div>
+            <div class="card-body">
+                <h1 class="city-name">Mumbai</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ....................................................... -->
+    <!-- add slid show -->
+
+
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Offers</h6>
+                <h1 class="mb-5">Offers of the day!!!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="static/img/offer1.png"
+                        style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Instant Discount</h5>
+                    <h2>Kolkata</h2>
+                    <h5 class="mb-0" background-color="gray";>500 off on rent:<label for="name" ><b >SM2000</b></label></h5>
+                    <p>Valid only on 1 month bookings</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="static/img/offer2.jpeg"
+                        style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Instant Discount</h5>
+                    <h2>Delhi</h2>
+                    <h5 class="mb-0" background-color="gray";>250 off on rent:<label for="name" ><b >PJ2001</b></label></h5>
+                    <p>Valid only on 2 month bookings</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="static/img/offer3.png"
+                        style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Instant Discount</h5>
+                    <h2>Mumbai</h2>
+                    <h5 class="mb-0" background-color="gray";>300 off on rent:<label for="name" ><b >SMI200</b></label></h5>
+                    <p>Valid only on 1 month bookings</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="static/img/offer4.jpeg"
+                        style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Instant Discount</h5>
+                    <h2>Hydrabad</h2>
+                    <h5 class="mb-0" background-color="gray";>1000 off on rent:<label for="name" ><b >AJ1999</b></label></h5>
+                    <p>Valid only on 3 month bookings</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/about.jpg' %}" alt=""
+                            style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                    <h1 class="mb-4">Welcome to <span class="text-primary">PASS</span></h1>
+                    <p class="mb-4">Welcome to PASS, your trusted partner for seamless and convenient booking
+                        experiences. Our mission is to simplify the booking process and empower businesses and
+                        individuals to efficiently manage their reservations.</p>
+                    <p class="mb-4">At PASS, we are a passionate team of developers, designers, and problem solvers.
+                        With a shared vision of making bookings hassle-free, we embarked on a journey to create a
+                        platform that brings ease and efficiency to the world of reservations.</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Best deals </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked PG</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Safe Accommodations</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest facilities</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150+ Pg
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Service Start -->
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
+                <h1 class="mb-5">Amenities List
+                </h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="far fa-3x fa-snowflake text-primary mb-4"></i>
+                            <h5>Air Conditioner</h5>
+                            <p>Surely Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fas fa-3x fa-building text-primary mb-4"></i>
+                            <h5>Balcony</h5>
+                            <p>You need to request</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-bed text-primary mb-4"></i>
+                            <h5>Extra Bed</h5>
+                            <p>You need to request</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-tv text-primary mb-4"></i>
+                            <h5>Flat TV</h5>
+                            <p>Surely Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-bath text-primary mb-4"></i>
+                            <h5>Hot & Cold Water</h5>
+                            <p>Surely Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-phone text-primary mb-4"></i>
+                            <h5>InterCom</h5>
+                            <p>Surely Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fas fa-3x fa-archive text-primary mb-4"></i>
+                            <h5>Locker
+                            </h5>
+                            <p>Surely Available</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-wifi text-primary mb-4"></i>
+                            <h5>WiFi</h5>
+                            <p>Surely Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Destination Start -->
+    <div class="container-xxl py-5 destination">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Rooms</h6>
+                <h1 class="mb-5">Popular Rooms</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/destination-1.jpg' %}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                                    15% OFF</div>
+                                <div
+                                    class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
+                                    Kolkata</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/destination-2.jpg' %}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                                    25% OFF</div>
+                                <div
+                                    class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
+                                    Hydrabad</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{% static 'img/destination-3.jpg' %}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                                    5% OFF</div>
+                                <div
+                                    class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
+                                    Bangalore</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{% static 'img/destination-4.jpg' %}" alt=""
+                            style="object-fit: cover;">
+                        <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">20% OFF
+                        </div>
+                        <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
+                            Mumbai</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Destination Start -->
+
+
+    <!-- Package Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Deals</h6>
+                <h1 class="mb-5">Awesome Deals</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="package-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/package-1.jpg' %}" alt="">
+                        </div>
+                        <div class="d-flex border-bottom">
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-map-marker-alt text-primary me-2"></i>Kolkata</small>
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-calendar-alt text-primary me-2"></i>30 days</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2
+                                Person</small>
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-0">Rs.4999</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p> furnished rooms, Wi-Fi, shared spaces, meals, utilities, security, and sometimes
+                                housekeeping</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="#" class="btn btn-sm btn-primary px-3 border-end"
+                                    style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="btn btn-sm btn-primary px-3"
+                                    style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="package-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/package-2.jpg' %}" alt="">
+                        </div>
+                        <div class="d-flex border-bottom">
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-map-marker-alt text-primary me-2"></i>Hydrabad</small>
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-calendar-alt text-primary me-2"></i>30 days</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2
+                                Person</small>
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-0">Rs.8999</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p> furnished rooms, Wi-Fi, shared spaces, meals, utilities, security, and sometimes
+                                housekeeping</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="#" class="btn btn-sm btn-primary px-3 border-end"
+                                    style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="btn btn-sm btn-primary px-3"
+                                    style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="package-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/package-3.jpg' %}" alt="">
+                        </div>
+                        <div class="d-flex border-bottom">
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-map-marker-alt text-primary me-2"></i>Mumbai</small>
+                            <small class="flex-fill text-center border-end py-2"><i
+                                    class="fa fa-calendar-alt text-primary me-2"></i>30 days</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>3
+                                Person</small>
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-0">Rs.15000</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p> furnished rooms, Wi-Fi, shared spaces, meals, utilities, security, and sometimes
+                                housekeeping</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="#" class="btn btn-sm btn-primary px-3 border-end"
+                                    style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="btn btn-sm btn-primary px-3"
+                                    style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Package End -->
+
+
+    <!-- Booking Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="booking p-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-6 text-white">
+                        <h6 class="text-white text-uppercase">Booking</h6>
+                        <h1 class="text-white mb-4">Online Booking</h1>
+                        <p class="mb-4">Booking accommodations online has never been easier. </p>
+                        <p class="mb-4">With a few clicks, you can secure your perfect stay. Start by entering your
+                            travel dates and location preferences. Browse through a variety of options, each with
+                            detailed information and photos. Once you've found the ideal choice, confirm availability,
+                            select your room type, and proceed to a secure payment gateway. An instant confirmation will
+                            be sent to you, outlining all the details of your booking. This seamless process saves time,
+                            ensures transparency, and provides the convenience of booking from anywhere, at any time.
+                        </p>
+                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="text-white mb-4">Book A PG</h1>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent" id="name"
+                                            placeholder="Your Name">
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control bg-transparent" id="email"
+                                            placeholder="Your Email">
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        <input type="text" class="form-control bg-transparent datetimepicker-input"
+                                            id="datetime" placeholder="Date & Time" data-target="#date3"
+                                            data-toggle="datetimepicker" />
+                                        <label for="datetime">Date </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-transparent" id="select1">
+                                            <option value="1">Kolkata</option>
+                                            <option value="2">Bangalore</option>
+                                            <option value="3">Mumbai</option>
+                                            <option value="3">Delhi</option>
+                                        </select>
+                                        <label for="select1">Destination</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control bg-transparent" placeholder="Special Request"
+                                            id="message" style="height: 100px"></textarea>
+                                        <label for="message">Special Request</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Booking Start -->
+
+
+    <!-- Process Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Process</h6>
+                <h1 class="mb-5">3 Easy Steps</h1>
+            </div>
+            <div class="row gy-5 gx-4 justify-content-center">
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+                            style="width: 100px; height: 100px;">
+                            <i class="fa fa-globe fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4">Search and Select</h5>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Start by searching for PG accommodations in your desired location. Use online
+                            platforms or websites that specialize in PG listings. Enter your preferred dates, budget,
+                            and any specific requirements</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+                            style="width: 100px; height: 100px;">
+                            <i class="fa fa-dollar-sign fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4">Pay Online</h5>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Booking online with secure payment ensures a seamless experience, allowing you
+                            to confirm your PG accommodation quickly and conveniently.Receive instant booking
+                            confirmation via email.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+                            style="width: 100px; height: 100px;">
+                            <i class="fa fa-plane fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4">Go Today</h5>
+                        <hr class="w-25 mx-auto bg-primary mb-1">
+                        <hr class="w-50 mx-auto bg-primary mt-0">
+                        <p class="mb-0">Arrange visits to inspect the accommodations, while also asking about safety
+                            measures and security features. Have your identification and address proof documents
+                            prepared.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Process Start -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Our Team</h6>
+                <h1 class="mb-5">Meet Our Team members</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-1.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Prabal Jana</h5>
+                            <small>Software Devloper</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-2.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Sourav Maity</h5>
+                            <small>Software Devloper</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-3.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Arghya Das</h5>
+                            <small>Software Devloper</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/team-4.jpg' %}" alt="">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0">Sourav Maji</h5>
+                            <small>Software Devloper</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+{% endblock body %}

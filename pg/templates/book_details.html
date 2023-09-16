@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    {% comment %}
+    <link rel="stylesheet" href="styles.css"> {% endcomment %}
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 70px;
+
+                {
+                % comment %
+            }
+
+            background-image: url('https://images.unsplash.com/photo-1526277952-75f4fd942470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1177&q=80');
+
+                {
+                % endcomment %
+            }
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+
+
+        }
+
+        /* Style the container */
+        .container {
+
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 3.2);
+            height: 100%;
+
+        }
+
+        /* Style the form header */
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Style form labels */
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #1f1b1b;
+        }
+
+        /* Style form inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus {
+            width: 100%;
+            height: 30px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            background-color: #f8f8f8;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Style form input labels */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus {
+            color: #007bff;
+        }
+
+        /* Style form input placeholder text */
+        input::placeholder,
+        textarea::placeholder {
+            color: #ccc;
+        }
+
+        /* Style the submit button */
+        button[type="submit"] {
+            background-color: #102a46;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+
+        /* Style the submit button on hover */
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the container on larger screens */
+        @media screen and (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+        }
+
+        /* Additional styles for the comments textarea */
+
+        /* Style the image container */
+        .columns-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Style the left and right columns */
+        .left-column,
+        .right-column {
+            flex: 1;
+            padding: 0px;
+            border-radius: 5px;
+        }
+
+        /* Style the left column */
+        .left-column {
+            margin-right: 0;
+            margin-left: 0;
+            background-color: #f0f0f0;
+        }
+
+        .left-column img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* Style the right column */
+        .right-column {
+            margin-left: 0px;
+            background-color: #98a75d;
+            padding: 20px;
+        }
+
+        .right-column header {
+            text-align: center;
+            color: rgb(14, 92, 82);
+            font-family: serif;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        @keyframes colorChange {
+            78% {
+                color: white;
+            }
+
+            50% {
+                color: darkblue;
+            }
+
+        }
+
+        /* Apply the animation to the paragraph */
+        .animated-paragraph {
+            animation: colorChange 4s linear infinite;
+            padding: 20px;
+            text-align: center;
+            /* Add padding to all sides of the paragraph */
+            font-family: 'Courier New', Courier, monospace;
+            /* Unique font style */
+            font-size: 30px;
+        }
+
+        .red-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style the red button link on hover */
+        .red-button:hover {
+            background-color: darkred;
+        }
+        
+        
+    </style>
+    <script>
+        function calculateUpToDate() {
+            const fromDateInput = document.getElementById('check-in');
+            const upToDateInput = document.getElementById('check-out');
+
+            // Get the selected "From Date" and parse it as a Date object
+            const fromDate = new Date(fromDateInput.value);
+
+            // Add 2 months to the "From Date"
+            fromDate.setMonth(fromDate.getMonth() + {{ num_months }});
+
+        // Format the "Up to Date" as 'YYYY-MM-DD' and set it as the value of the input field
+        const year = fromDate.getFullYear();
+        const month = String(fromDate.getMonth() + 1).padStart(2, '0'); // Add 1 to the month because it's zero-based
+        const day = String(fromDate.getDate()).padStart(2, '0');
+        const upToDate = `${year}-${month}-${day}`;
+        upToDateInput.value = upToDate;
+        }
+
+        // Call calculateUpToDate initially if you want to set a default value
+        calculateUpToDate()
+
+
+    </script>
+
+</head>
+
+<body>
+    <h1 class="animated-paragraph">Step into Luxury - Reserve Your Spot at {{ pg.pgname }} PG!</h1>
+
+    <div class="container">
+        <form id="book_details1" method="post">
+            {% csrf_token %}
+            <div class="columns-container">
+                <div class="left-column">
+                    <img src="https://images.unsplash.com/photo-1692055650033-e4d50e09e4a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80"
+                        alt="Hotel Image">
+                </div>
+
+                <div class="right-column">
+
+                    <header>Booking Details</header>
+                    <label for="unic_name">your uniq id:</label>
+                    <input type="text" id="unic_name" name="unic_name" value="{{username.unique_id}}" readonly>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="pgid">Private Pg no:</label>
+                    <input type="text" id="pgid" name="pgid" value="{{pg.id}}" readonly>
+                    <label for="pgname">Pg name:</label>
+                    <input type="text" id="pgname" name="pgname" value="{{pg.pgname}}" readonly>
+                    <label for="owner_unic_id">Pgowner name:</label>
+                    <input type="text" id="owner_unic_id" name="owner_unic_id" value="{{pg.pname}}" readonly>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="check-in">From Date:</label>
+                    <input type="date" id="check-in" name="check-in" required onchange="calculateUpToDate()">
+                    <label for="check-out">Up to Date:</label>
+                    <input type="date" id="check-out" name="check-out" readonly>
+                    <label for="price">Total Price:</label>
+                    <input type="text" id="price" name="price" value="{{total_pay}}" readonly>
+                    <a href="/show_pg/{{pg.id}}" class="red-button" id="goBackButton">Back</a>
+
+                    <button type="submit" id="rzp-button1">Confirm to Pay</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    </br>
+    {% if payment %}
+        <form action="/status" method="POST" name="rbutoon" style=" display: block;
+        width: 100%;
+        max-width: 300px; /* Set your desired max width */
+        margin: 20px auto; /* Center the button horizontally */
+        padding: 15px 30px; /* Increase padding to make it larger */
+        font-size: 18px; /* Increase font size to make it larger */
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        cursor: pointer;">
+            {% csrf_token %}
+            <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="rzp_test_pLIx0T3He3bPLu"
+                data-amount="{{payment.amount}}" 
+                data-currency="{{payment.currency}}"
+                data-order_id="{{Payment.id}}"
+                data-buttontext="Pay with Razorpay"
+                data-name="PASS"
+                data-description="book to stay today"
+                data-image="https://example.com/your_logo.jpg"
+                data-prefill.name="Gaurav Kumar"
+                data-prefill.email="gaurav.kumar@example.com"
+                data-theme.color="#F37254"
+                
+            ></script>
+            <input type="hidden" custom="Hidden Element" name="hidden"/>
+            </form>
+        {% endif %}
+    
+
+
+
+    {% comment %} <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_pLIx0T3He3bPLu",
+            "amount": "5000",
+            "currency": "INR",
+            "name": "Pg booking System",
+            "description": "Payment system",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+                colsole.log("success")
+                var form = document.getElementById("myform");
+                // window.location.href= '127.0.0.1:8000/payment'
+                alert(response.razorpay_payment_id);
+                alert(response.razorpay_order_id);
+                alert(response.razorpay_signature)
+                //window.location.href= '127.0.0.1:8000/payment'
+
+            },
+
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response) {
+            // alert(response.error.code);
+            alert(response.error.description);
+            //alert(response.error.source);
+            //alert(response.error.step);
+            //alert(response.error.reason);
+            //alert(response.error.metadata.order_id);
+            //alert(response.error.metadata.payment_id);
+        });
+        document.getElementById('rzp-button1').onclick = function (e) {
+            console.log("button click");
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+ {% endcomment %}
+ 
+
+
+
+
+
+
+
+   
+</body>
+
+</html>

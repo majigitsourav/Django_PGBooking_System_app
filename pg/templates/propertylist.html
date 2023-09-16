@@ -1,0 +1,323 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block div %}
+   <a href="home" class="nav-item nav-link">Home</a>
+    <a href="about" class="nav-item nav-link">About</a>
+    <a href="service" class="nav-item nav-link">Services</a>
+    <a href="pgowner_login" class="nav-item nav-link active">Pg Owner</a>
+    <a href="contact" class="nav-item nav-link">Contact</a>
+
+{% endblock div %}
+{% block style %}
+<style>
+    /* Underline effect for form controls */
+    .form-control {
+        border: none;
+        border-bottom: 1px solid #1530e0; /* Increased border thickness for better visibility */
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        /* Remove padding to prevent any additional space around the input */
+        transition: none; /* Remove the transition */
+        width: 100%;
+    }
+
+    /* Style for labels */
+    .form-group label {
+        width: 150px; /* Adjust as needed */
+    }
+
+    .form-group .form-control {
+        width: calc(100% - 30px);
+        box-shadow: none; /* Adjust to account for label width */
+    }
+
+    /* Display fields on the same line */
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+       
+        /* Add margin between rows */
+    }
+    .form-row #gender,#email{
+        width:calc(100% - 30px);
+    }
+
+    /* Add margin between form groups */
+    .form-group {
+        margin-bottom: 1rem;
+        color: blue; /* Adjust as needed */
+        
+    }
+
+    /* Adjust margin for checkboxes */
+    .form-check {
+        margin-bottom: 0.5rem;
+        color: green; /* Adjust as needed */
+    }
+
+    /* Display fields on the same line */
+    .same-line-form-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Align labels and controls vertically */
+        flex-wrap: wrap;
+    }
+
+    /* Adjust margin for form groups */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    /* Style for select dropdowns and inputs */
+    .form-group select.form-control,
+    .form-group input.form-control,
+    .form-group textarea.form-control {
+        appearance: none; /* Remove default appearance */
+        background: transparent; /* Transparent background */
+        border: none; /* Remove border */
+        outline: none; /* Remove outline */
+        width: 100%; /* Full width */
+        padding: 0.375rem 0;
+         border-bottom: 1px solid #1530e0;
+    }
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        position: block;
+        top: 30px;
+        left: 20px;
+
+        background-size: cover;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .arrow-icon {
+        font-size: 18px;
+        color: #333;
+        margin-left: 5px;
+    }
+
+    .nav-label {
+        margin-left: 10px;
+        color: #777;
+    }
+</style>
+{% endblock style %}
+
+{% block script %}
+
+  function updateTextField() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"][name="amenities[]"]');
+    var selectedAmenities = [];
+
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            selectedAmenities.push(checkbox.value);
+        }
+    });
+
+    var textField = document.getElementById('amenities_text');
+    textField.value = selectedAmenities.join(', '); // Display selected amenities as a comma-separated list
+  }
+
+{% endblock script %}
+{% block hero %}
+<div class="container-fluid bg-primary py-5  hero-header">
+            
+</div>
+        
+{% endblock hero %}
+
+
+{% block body %}
+<div class="navigation">
+    <a href="home" class="nav-link">
+        Home
+        <i class="fas fa-arrow-right arrow-icon"></i>
+    </a>
+    <span class="nav-label" style="color: blue;">
+        Add PG
+    </span>
+    <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ ownername.full_name }}</a>
+        <div class="dropdown-menu dropdown-menu-end m-0" style="background-color: #f8f9fa; border: none;">
+            <a href="pgowner_profile" class="dropdown-item">Profile</a>
+            <a href="pgowner_booking" class="dropdown-item">Booking List</a>
+            <a href="change_password" class="dropdown-item">Change Password</a>
+            <a href="plogout" class="dropdown-item">Logout</a>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container mt-5">
+        <h1>List Your Property</h1>
+        <form action="add_pg" method="post" enctype="multipart/form-data">{% csrf_token %}
+            
+            <div class="form-group">
+                <label for="property_name">Property Name:</label>
+                <input type="text" class="form-control" id="property_name" name="property_name" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender" >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contact_name"> Person Name:</label>
+                    <input type="text" class="form-control" id="contact_name" name="contact_name" value="" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="mobile">Mobile:</label>
+                    <input type="tel" class="form-control" id="mobile" name="mobile" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="PG Reg No">PG Reg No:</label>
+                <input type="text" class="form-control" id="pgregno" name="pgregno" value="" required>
+            </div>
+            <div class="form-group">
+                <label for="Property Address">Property Address:</label>
+                <input type="text" class="form-control" id="propertyaddress" name="propertyaddress" value="" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" value="" required rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="rent">Rent:</label>
+                <input type="text" class="form-control" id="rent" name="rent" value="" required>
+            </div>
+            <div class="form-group">
+                <label for="property_image1">Property Image 1:</label>
+                <input type="file" class="form-control-file" id="property_image1" name="property_image1" accept="image/*">
+            </div>
+        
+            <div class="form-group">
+                <label for="property_image2">Property Image 2:</label>
+                <input type="file" class="form-control-file" id="property_image2" name="property_image2" accept="image/*">
+            </div>
+        
+            <div class="form-group">
+                <label for="property_image3">Property Image 3:</label>
+                <input type="file" class="form-control-file" id="property_image3" name="property_image3" accept="image/*">
+            </div>
+            <div class="same-line-form-group">
+                <div class="form-group">
+                    <label for="State"> State:</label>
+                    <input type="text" class="form-control" id="state" name="state" value="" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <select class="form-control" id="city" name="city">
+                        <option value="kolkata">Kolkata</option>
+                        <option value="delhi">delhi</option>
+                        <option value="hydrabad">Hydrabad</option>
+                        <option value="mumbai">Mumbai</option>
+                        <!-- Add more city options here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="locality">Locality:</label>
+                    <input type="text" class="form-control" id="locality" name="locality" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="noofbeds">No of Beds:</label>
+                <select class="form-control" id="noofbeds" name="noofbeds">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+
+            <!-- Include more property details here -->
+            <div class="form-group">
+                <label for="amenities" style="padding: 10px;">Select Amenities:</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="housekeeping" name="amenities[]" value="House Keeping" onchange="updateTextField()">
+                    <label class="form-check-label" for="housekeeping">House Keeping</label>
+                </div>
+                
+                <!-- Repeat for other amenities checkboxes -->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="ac" name="amenities[]" value="AC" onchange="updateTextField()">
+                    <label class="form-check-label" for="ac">AC</label>
+                </div>    
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="refridgarator" name="amenities[]" value="Refrigrator" onchange="updateTextField()">
+                    <label class="form-check-label" for="refridgarator">Refrigerator</label>
+                </div>    
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="kitchen" name="amenities[]" value="Kitchen" onchange="updateTextField()">
+                    <label class="form-check-label" for="kitchen">Kitchen</label>
+                </div>    
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="mineralwater" name="amenities[]" value="Mineral Water" onchange="updateTextField()">
+                    <label class="form-check-label" for="mineralwater">Mineral Water</label>
+                </div>    
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="balcony" name="amenities[]" value="Balcony" onchange="updateTextField()">
+                    <label class="form-check-label" for="balcony">Balcony</label>
+                </div>  
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="parkingarea" name="amenities[]" value="Parking Area" onchange="updateTextField()">
+                    <label class="form-check-label" for="parkingarea">Parking Area</label>
+                </div>  
+                
+                <label for="rules" style="padding: 10px;">Select Rules:</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="no_drinking" name="amenities[]" value="No Drinking" onchange="updateTextField()">
+                    <label class="form-check-label" for="no_drinking">No Drinking</label>
+                    
+                </div>
+                <div class="form-check">
+                    
+                    <input type="checkbox" class="form-check-input" id="no_smoking" name="amenities[]" value="No Smoking" onchange="updateTextField()">
+                    <label class="form-check-label" for="no_smoking">No Smoking</label>
+                </div>
+                <!-- Repeat the above two lines for other rules -->
+            
+            </div>
+
+          
+
+            <div class="form-group">
+                <label for="amenities_text">Selected Amenities:</label>
+                <input type="text" class="form-control" id="amenities_text" name="amenities_text" readonly>
+            </div>
+        
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock body %}
+
